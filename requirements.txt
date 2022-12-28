@@ -1,11 +1,11 @@
 alembic==1.7.7
 asyncpg==0.25.0
-fastapi==0.75.2
+fastapi==0.78.0
 SQLAlchemy==1.4.35
 sqlmodel==0.0.6
-strawberry-graphql==0.111.2
+strawberry-graphql==0.113.0
 uvicorn[standard]==0.17.6
 gunicorn==20.1.0
 celery==5.2.6
 flower==1.0.0
-redis==4.2.2
+redis==4.3.1

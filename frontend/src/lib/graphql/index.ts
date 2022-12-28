@@ -236,14 +236,13 @@ const dataProvider = (client: GraphQLClient): DataProvider => {
         getOne: async ({ resource, id, metaData }) => {
             const singularResource = pluralize.singular(resource);
             const camelResource = camelCase(singularResource);
-            console.log(metaData);
 
             const operation = metaData?.operation ?? camelResource;
 
             const { query, variables } = gql.query({
                 operation,
                 variables: {
-                    id: { value: id, type: "ID", required: true },
+                    id: { value: id, type: "UUID", required: true },
                 },
                 fields: metaData?.fields,
             });

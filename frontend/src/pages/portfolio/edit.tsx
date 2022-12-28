@@ -12,11 +12,7 @@ export const PortfolioEdit: React.FC = () => {
             fields: [
                 "id",
                 "name",
-                {
-                    broker: [
-                        "id"
-                    ],
-                },
+                "brokerId"
             ],
         },
     });
@@ -33,7 +29,7 @@ export const PortfolioEdit: React.FC = () => {
         },
         optionLabel: "name",
         optionValue: "id",
-        defaultValue: postData?.broker?.id
+        defaultValue: postData?.brokerId
     });
 
 
@@ -52,16 +48,7 @@ export const PortfolioEdit: React.FC = () => {
                       />
                   </Space> }}
         >
-            <Form {...formProps} layout="vertical"
-                  onFinish={(values) =>{
-                      if (values.broker){
-                          values = {...values,
-                              brokerId: values.broker.id,
-                          } as any;
-                          delete values.broker;
-                      }
-                      formProps.onFinish?.(values);
-                  }}>
+            <Form {...formProps} layout="vertical">
                 <Form.Item label="Name" name="name"
                            rules={[
                     {
@@ -70,7 +57,7 @@ export const PortfolioEdit: React.FC = () => {
                 ]}>
                     <Input />
                 </Form.Item>
-                <Form.Item label="Broker" name={["broker", "id"]}>
+                <Form.Item label="Broker" name="brokerId">
                     <Select {...brokerSelectProps} />
                 </Form.Item>
             </Form>

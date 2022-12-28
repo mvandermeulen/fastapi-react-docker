@@ -1,12 +1,15 @@
 # Full stack demo app
 
+Uses async DB connections.
+
 Database:
 - [PostgreSQL](https://www.postgresql.org) database (with [asyncpg](https://magicstack.github.io/asyncpg/current/)) 
 - [pgAdmin](https://www.pgadmin.org) administration interface
 
 Backend:
 - [Python](https://www.python.org/) 3.10
-- [Uvicorn](https://www.uvicorn.org) ASGI web server,
+- [Uvicorn](https://www.uvicorn.org) ASGI web server
+- [Gunicor](https://gunicorn.org) for managment Uvicorn workers
 - [FastAPI](https://fastapi.tiangolo.com) web framework
 - [SQLModel](https://sqlmodel.tiangolo.com) - an ORM, based on [SQLAlchemy](https://www.sqlalchemy.org) 
   and [Pydantic](https://pydantic-docs.helpmanual.io)
@@ -16,6 +19,7 @@ Backend:
 - [Flower](https://flower.readthedocs.io/en/latest/) Celery web monitor
 - [RabbitMQ](https://www.rabbitmq.com) message broker
 - [Redis](https://redis.io) for Celery result backend
+- [Pytest](https://docs.pytest.org) for tests
 
 Frontend:
 - [Nginx](https://nginx.org) web server
@@ -33,6 +37,7 @@ Tools:
 FastAPI doesn't create db tables on start, use alembic migrations for it.
 
 ```bash
+# See Makefile
 make migrations m="migration message" # create migrations
 make migrate # apply migrations to db
 make downgrade # downgrade last migration

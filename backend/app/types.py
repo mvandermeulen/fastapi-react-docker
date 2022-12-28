@@ -92,11 +92,6 @@ class CreateBroker:
 
 
 @strawberry.input
-class WhereID:
-    id: UUID
-
-
-@strawberry.input
 class UpdateBrokerInput:
     where: WhereID
     data: UpdateBroker
